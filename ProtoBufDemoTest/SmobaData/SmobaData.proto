@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+message RoomInfoPB {
+    enum PVPRoomType {
+        PVPRoomType5V5_1 = 0;
+        PVPRoomType5V5_2 = 1;
+        PVPRoomType5V5_3 = 2;
+        PVPRoomType3V3 = 3;
+        PVPRoomType1V1 = 4;
+    };
+    PVPRoomType roomType = 1;
+    string RoomData = 2;
+}
+
+message MatchResultPB {
+    uint32 mvpValue = 1;
+    uint32 TotalCoin = 2;
+    uint32 KillSoldier = 3;
+    uint32 KillMonster = 4;
+    uint32 Kill = 5;
+    uint32 Dead = 6;
+    uint32 Assist = 7;
+    uint32 DoubleKillNum = 8;
+    uint32 SoulLevel = 9;
+    repeated uint32 EquipIds = 10;
+}
+
+message PlayerPB {
+    uint64 playerID = 1;
+    uint32 camp = 2;
+    bool isMaster = 3;
+    bool isReady = 4;
+    MatchResultPB result = 5;
+}
+
+message SmobaData {
+    uint32 magic = 1;
+    uint32 flags = 2;
+    uint32 req = 3;
+    uint32 accountID = 4;
+    string accountInfo = 5;
+    uint32 logicWorldID = 6;
+    uint32 winCamp = 7;
+    RoomInfoPB roomInfo = 8;
+    repeated PlayerPB player = 9;
+}

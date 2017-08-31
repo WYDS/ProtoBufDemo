@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dWe-dz-34e">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="pAd-8d-TKt">
+            <objects>
+                <navigationController id="dWe-dz-34e" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dtk-2O-bOd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cQO-wl-FZE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UpL-gI-NKW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1070" y="-6"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wwd-ap-Mtz">
+                                <rect key="frame" x="154" y="495" width="66" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="P2f-Sk-inf"/>
+                                    <constraint firstAttribute="width" constant="66" id="lXZ-uP-xX5"/>
+                                </constraints>
+                                <state key="normal" title="QQ登录"/>
+                                <connections>
+                                    <action selector="qqLoginGameAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vez-cG-LM8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8z6-Tx-0PP">
+                                <rect key="frame" x="156" y="449" width="62" height="30"/>
+                                <state key="normal" title="微信登录"/>
+                                <connections>
+                                    <action selector="weChatAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T9w-BR-au2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8z6-Tx-0PP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EwJ-To-K0r"/>
+                            <constraint firstItem="Wwd-ap-Mtz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JoU-gm-z7t"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Wwd-ap-Mtz" secondAttribute="bottom" constant="142" id="SM8-PH-44u"/>
+                            <constraint firstItem="Wwd-ap-Mtz" firstAttribute="top" secondItem="8z6-Tx-0PP" secondAttribute="bottom" constant="16" id="xmZ-u1-y9B"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="U9p-tx-RNa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+        </scene>
+    </scenes>
+</document>
