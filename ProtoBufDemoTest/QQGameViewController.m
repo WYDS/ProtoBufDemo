@@ -116,7 +116,7 @@ UIWebViewDelegate
 - (NSString *)generatedOpenURL:(NSDictionary *)dict withRoomData:(NSString *)roomData {
     
     NSString *forwardURL = [NSString stringWithFormat:@"tencent1104466820://?platform=qq_m&user_openid=%@&openid=%@&atoken=%@&ptoken=%@&launchfrom=sq_gamecenter", dict[@"openid"], dict[@"openid"], dict[@"access_token"], dict[@"pay_token"]];
-//    forwardURL = @"tencent1104466820://";
+    forwardURL = @"tencent1104466820://";
     if (roomData && [roomData length] != 0) {
         return [forwardURL stringByAppendingFormat:@"&gamedata=%@&platformdata=", roomData];
     }

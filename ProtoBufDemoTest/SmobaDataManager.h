@@ -11,7 +11,7 @@
 
 #define SmobaDataMagic 0xfeed121
 
-#define TEST_ACCOUNT_ID  1
+#define TEST_ACCOUNT_ID  2
 
 typedef enum : NSUInteger {
     SmobaFlagsNone=0,

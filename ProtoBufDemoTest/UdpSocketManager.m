@@ -65,6 +65,7 @@ GCDAsyncUdpSocketDelegate
     }
     
     dispatch_queue_t dQueue = dispatch_queue_create("My socket queue", DISPATCH_QUEUE_CONCURRENT);
+    //dispatch_get_main_queue()
     _udpServerSoket = [[GCDAsyncUdpSocket alloc] initWithDelegate:self delegateQueue:dQueue];
     
     NSError *error = nil;
@@ -114,6 +115,7 @@ GCDAsyncUdpSocketDelegate
         
         [SmobaDataManager sharedInstance].smobaData.flags = SmobaFlagsInitInfo;
         [SmobaDataManager sharedInstance].smobaData.accountInfo = _accountInfo;
+//        [SmobaDataManager sharedInstance].smobaData.logicWorldId = 2021;
         
         NSMutableArray *playerArray = [SmobaDataManager sharedInstance].smobaData.playerArray;
         if (!playerArray) {
@@ -132,7 +134,7 @@ GCDAsyncUdpSocketDelegate
         player2.playerId = 2;
         player2.camp = 2;
         player2.isMaster = 0;
-        [playerArray addObject:player1];
+        [playerArray addObject:player2];
         
         [SmobaDataManager sharedInstance].smobaData.playerArray = playerArray;
         
