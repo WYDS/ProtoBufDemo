@@ -50,4 +50,32 @@
 }
 
 
+- (BOOL)handleOpenURL:(NSURL *)url {
+    NSLog(@"query=%@,scheme=%@,host=%@", url.query, url.scheme, url.host);
+    NSString *scheme = [url scheme];
+    
+    if([scheme isEqualToString:@"wyopen"]){
+        
+        NSString *lastCompment = [[url path] lastPathComponent];
+        if ([lastCompment isEqualToString:@"battleResult"]) {
+            //跳转至游戏结果页面
+            
+        }
+        return YES;
+    }
+    
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [self handleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    NSLog(@"openURL url=%@, sourceApplication=%@, annotation=%@", url, sourceApplication, annotation);
+    return [self handleOpenURL:url];
+}
+
 @end

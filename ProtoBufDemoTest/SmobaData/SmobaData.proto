@@ -8,8 +8,8 @@ message RoomInfoPB {
         PVPRoomType3V3 = 3;
         PVPRoomType1V1 = 4;
     };
-    PVPRoomType roomType = 1;
-    string RoomData = 2;
+    PVPRoomType roomType = 1;   // 房间类型
+    string RoomData = 2;        // 房间标识
 }
 
 message MatchResultPB {
@@ -21,26 +21,28 @@ message MatchResultPB {
     uint32 Dead = 6;
     uint32 Assist = 7;
     uint32 DoubleKillNum = 8;
-    uint32 SoulLevel = 9;
-    repeated uint32 EquipIds = 10;
+    uint32 SoulLevel = 9;           // 英雄等级
+    repeated uint32 EquipIds = 10;  // 装备ID
 }
 
 message PlayerPB {
-    uint64 playerID = 1;
-    uint32 camp = 2;
-    bool isMaster = 3;
-    bool isReady = 4;
-    MatchResultPB result = 5;
+    uint64 playerID = 1;      // 玩家ID
+    uint32 camp = 2;          // 阵营
+    bool isMaster = 3;        // 房主
+    bool isReady = 4;         // 入座
+    string heroSkin = 5;      // 玩家皮肤
+    string heroName = 6;      // 玩家名称
+    MatchResultPB result = 7; // 比赛结果
 }
 
 message SmobaData {
     uint32 magic = 1;
     uint32 flags = 2;
     uint32 req = 3;
-    uint32 accountID = 4;
-    string accountInfo = 5;
-    uint32 logicWorldID = 6;
-    uint32 winCamp = 7;
-    RoomInfoPB roomInfo = 8;
-    repeated PlayerPB player = 9;
+    uint32 accountID = 4;           // 当前用户ID
+    string accountInfo = 5;         // 授权信息
+    uint32 logicWorldID = 6;        // 进入区服
+    uint32 winCamp = 7;             // 获胜阵营
+    RoomInfoPB roomInfo = 8;        // 房间信息
+    repeated PlayerPB player = 9;   // 玩家信息
 }

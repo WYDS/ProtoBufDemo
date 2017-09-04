@@ -81,8 +81,10 @@ typedef GPB_ENUM(RoomInfoPB_FieldNumber) {
 
 @interface RoomInfoPB : GPBMessage
 
+/** 房间类型 */
 @property(nonatomic, readwrite) RoomInfoPB_PVPRoomType roomType;
 
+/** 房间标识 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *roomData;
 
 @end
@@ -132,8 +134,10 @@ typedef GPB_ENUM(MatchResultPB_FieldNumber) {
 
 @property(nonatomic, readwrite) uint32_t doubleKillNum;
 
+/** 英雄等级 */
 @property(nonatomic, readwrite) uint32_t soulLevel;
 
+/** 装备ID */
 @property(nonatomic, readwrite, strong, null_resettable) GPBUInt32Array *equipIdsArray;
 /** The number of items in @c equipIdsArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger equipIdsArray_Count;
@@ -147,19 +151,32 @@ typedef GPB_ENUM(PlayerPB_FieldNumber) {
   PlayerPB_FieldNumber_Camp = 2,
   PlayerPB_FieldNumber_IsMaster = 3,
   PlayerPB_FieldNumber_IsReady = 4,
-  PlayerPB_FieldNumber_Result = 5,
+  PlayerPB_FieldNumber_HeroSkin = 5,
+  PlayerPB_FieldNumber_HeroName = 6,
+  PlayerPB_FieldNumber_Result = 7,
 };
 
 @interface PlayerPB : GPBMessage
 
+/** 玩家ID */
 @property(nonatomic, readwrite) uint64_t playerId;
 
+/** 阵营 */
 @property(nonatomic, readwrite) uint32_t camp;
 
+/** 房主 */
 @property(nonatomic, readwrite) BOOL isMaster;
 
+/** 入座 */
 @property(nonatomic, readwrite) BOOL isReady;
 
+/** 玩家皮肤 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *heroSkin;
+
+/** 玩家名称 */
+@property(nonatomic, readwrite, copy, null_resettable) NSString *heroName;
+
+/** 比赛结果 */
 @property(nonatomic, readwrite, strong, null_resettable) MatchResultPB *result;
 /** Test to see if @c result has been set. */
 @property(nonatomic, readwrite) BOOL hasResult;
@@ -188,18 +205,24 @@ typedef GPB_ENUM(SmobaData_FieldNumber) {
 
 @property(nonatomic, readwrite) uint32_t req;
 
+/** 当前用户ID */
 @property(nonatomic, readwrite) uint32_t accountId;
 
+/** 授权信息 */
 @property(nonatomic, readwrite, copy, null_resettable) NSString *accountInfo;
 
+/** 进入区服 */
 @property(nonatomic, readwrite) uint32_t logicWorldId;
 
+/** 获胜阵营 */
 @property(nonatomic, readwrite) uint32_t winCamp;
 
+/** 房间信息 */
 @property(nonatomic, readwrite, strong, null_resettable) RoomInfoPB *roomInfo;
 /** Test to see if @c roomInfo has been set. */
 @property(nonatomic, readwrite) BOOL hasRoomInfo;
 
+/** 玩家信息 */
 @property(nonatomic, readwrite, strong, null_resettable) NSMutableArray<PlayerPB*> *playerArray;
 /** The number of items in @c playerArray without causing the array to be created. */
 @property(nonatomic, readonly) NSUInteger playerArray_Count;

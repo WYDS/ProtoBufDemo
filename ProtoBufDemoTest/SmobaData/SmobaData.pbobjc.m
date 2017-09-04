@@ -311,11 +311,15 @@ typedef struct MatchResultPB__storage_ {
 @dynamic camp;
 @dynamic isMaster;
 @dynamic isReady;
+@dynamic heroSkin;
+@dynamic heroName;
 @dynamic hasResult, result;
 
 typedef struct PlayerPB__storage_ {
   uint32_t _has_storage_[1];
   uint32_t camp;
+  NSString *heroSkin;
+  NSString *heroName;
   MatchResultPB *result;
   uint64_t playerId;
 } PlayerPB__storage_;
@@ -363,10 +367,28 @@ typedef struct PlayerPB__storage_ {
         .dataType = GPBDataTypeBool,
       },
       {
+        .name = "heroSkin",
+        .dataTypeSpecific.className = NULL,
+        .number = PlayerPB_FieldNumber_HeroSkin,
+        .hasIndex = 6,
+        .offset = (uint32_t)offsetof(PlayerPB__storage_, heroSkin),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "heroName",
+        .dataTypeSpecific.className = NULL,
+        .number = PlayerPB_FieldNumber_HeroName,
+        .hasIndex = 7,
+        .offset = (uint32_t)offsetof(PlayerPB__storage_, heroName),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeString,
+      },
+      {
         .name = "result",
         .dataTypeSpecific.className = GPBStringifySymbol(MatchResultPB),
         .number = PlayerPB_FieldNumber_Result,
-        .hasIndex = 6,
+        .hasIndex = 8,
         .offset = (uint32_t)offsetof(PlayerPB__storage_, result),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
@@ -382,7 +404,7 @@ typedef struct PlayerPB__storage_ {
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\003\001\007A\000\003\010\000\004\007\000";
+        "\005\001\007A\000\003\010\000\004\007\000\005\010\000\006\010\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
